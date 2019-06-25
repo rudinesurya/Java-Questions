@@ -24,10 +24,10 @@ class MergeSortTest {
     Integer[] arr = sorted.clone();
     shuffleArray(arr);
 
-    MergeSort<Integer> sorter = new MergeSort<Integer>();
+    MergeSort<Integer> sorter = new MergeSort<>();
     sorter.sort(arr);
 
-    assertArrayEquals(sorted, sorter.data);
+    assertArrayEquals(sorted, arr);
   }
 
   @Test
@@ -36,9 +36,9 @@ class MergeSortTest {
     Integer[] arr = sorted.clone();
     shuffleArray(arr);
 
-    MergeSort<Integer> sorter = new MergeSort<Integer>();
+    MergeSort<Integer> sorter = new MergeSort<>();
     sorter.sort(arr);
 
-    assertArrayEquals(sorted, sorter.data);
+    assertArrayEquals(sorted, arr);
   }
 }

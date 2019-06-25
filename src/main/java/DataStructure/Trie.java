@@ -2,11 +2,17 @@ package DataStructure;
 
 public class Trie {
 
-  TrieNode root;
+  class TrieNode {
 
-  public Trie() {
-    root = new TrieNode();
+    public TrieNode[] children = new TrieNode[26];
+    public boolean hasEnd;
+    public int np;
+
+    public TrieNode() {
+    }
   }
+
+  TrieNode root = new TrieNode();
 
   public void insert(String word) {
     TrieNode p = root;
@@ -36,15 +42,5 @@ public class Trie {
     }
 
     return p.np;
-  }
-
-  class TrieNode {
-
-    public TrieNode[] children = new TrieNode[26];
-    public boolean hasEnd;
-    public int np;
-
-    public TrieNode() {
-    }
   }
 }

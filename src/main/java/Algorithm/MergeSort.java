@@ -2,8 +2,8 @@ package Algorithm;
 
 public class MergeSort<T extends Comparable> {
 
-  T[] data;
-  T[] tempArray;
+  private T[] data;
+  private T[] tempArray;
 
   public void sort(T[] arr) {
     data = arr;
