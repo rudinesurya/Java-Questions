@@ -138,4 +138,40 @@ class BinarySearchTreeTest {
       e.printStackTrace();
     }
   }
+
+  @Test
+  void min2() {
+    BinarySearchTree tree = new BinarySearchTree();
+    tree.insert(3);
+    tree.insert(4);
+    tree.insert(5);
+    tree.insert(1);
+    tree.insert(2);
+
+    try {
+      int min = tree.getNMin(2);
+
+      assertEquals(2, min);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  @Test
+  void min3() {
+    BinarySearchTree tree = new BinarySearchTree();
+    tree.insert(3);
+    tree.insert(4);
+    tree.insert(5);
+    tree.insert(1);
+    tree.insert(2);
+
+    try {
+      int min = tree.getNMin(3);
+
+      assertEquals(3, min);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
 }

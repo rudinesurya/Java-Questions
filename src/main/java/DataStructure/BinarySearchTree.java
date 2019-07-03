@@ -2,7 +2,17 @@ package DataStructure;
 
 public class BinarySearchTree {
 
+  int order;
+
   TreeNode root = null;
+
+  public int getNMin(int n) throws Exception {
+    if (root == null) {
+      throw new Exception("Empty Binary Search Tree!");
+    }
+    order = n;
+    return getNMin_r(root).value;
+  }
 
   public void insert(int value) {
     root = insert_r(root, value);
@@ -17,6 +27,25 @@ public class BinarySearchTree {
       throw new Exception("Empty Binary Search Tree!");
     }
     return getMin_r(root).value;
+  }
+
+  private TreeNode getNMin_r(TreeNode root) {
+    if (root == null) {
+      return null;
+    }
+
+    TreeNode found = getNMin_r(root.left);
+
+    --order;
+    if (order == 0) {
+      return root;
+    }
+
+    if (found != null) {
+      return found;
+    } else {
+      return getNMin_r(root.right);
+    }
   }
 
   public int getMax() throws Exception {
@@ -73,14 +102,6 @@ public class BinarySearchTree {
     return getMin_r(root.left);
   }
 
-  private TreeNode getMax_r(TreeNode root) {
-    if (root.right == null) {
-      return root;
-    }
-
-    return getMax_r(root.right);
-  }
-
   class TreeNode {
 
     int value;
@@ -90,5 +111,13 @@ public class BinarySearchTree {
     public TreeNode(int value) {
       this.value = value;
     }
+  }
+
+  private TreeNode getMax_r(TreeNode root) {
+    if (root.right == null) {
+      return root;
+    }
+
+    return getMax_r(root.right);
   }
 }
